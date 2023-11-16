@@ -9,6 +9,7 @@ load_path = "res://.godot/imported/player.png-1ad27fc2a62fa126eae918723933dd6f.c
 size = Vector2(8, 14)
 
 [node name="Player" type="CharacterBody2D"]
+floor_snap_length = 2.0
 script = ExtResource("1_ephx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
