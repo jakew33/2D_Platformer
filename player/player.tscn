@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://lqy1ohukvjd7"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_ephx3"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_3wd0q"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gsyxl"]
 load_path = "res://.godot/imported/player.png-1ad27fc2a62fa126eae918723933dd6f.ctex"
@@ -83,7 +83,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 floor_snap_length = 2.0
-script = ExtResource("1_ephx3")
+script = ExtResource("1_3wd0q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
