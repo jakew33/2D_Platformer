@@ -57,9 +57,12 @@ func jump_check():
 			velocity.y = -jump_force / 2
 		
 func update_animations(input_axis):
+	sprite_2d.scale.x = sign(get_local_mouse_position().x)
+	if abs(sprite_2d.scale.x) != 1: sprite_2d.scale.x = 1
 	if is_moving(input_axis):
 		animation_player.play("run")
-		sprite_2d.scale.x = sign(input_axis)
+		animation_player.speed_scale = input_axis * sprite_2d.scale.x
+		
 	else:
 		animation_player.play("idle")
 		
