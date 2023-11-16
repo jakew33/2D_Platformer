@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const DustEffectScene = preload("res://dust_effect.tscn")
+const DustEffect = preload("res://effects/dust_effect.tscn")
 
 @export var acceleration = 512
 @export var max_velocity = 64
@@ -32,10 +32,7 @@ func _physics_process(delta):
 		coyote_jump_timer.start()
 	
 func create_dust_effect():
-	var dust_effect = DustEffectScene.instantiate()
-	var main = get_tree().current_scene	
-	main.add_child(dust_effect)
-	dust_effect.global_position = global_position
+	Utils.instantiate_scene_on_world(DustEffect, global_position)
 	
 func is_moving(input_axis):
 	return input_axis != 0
@@ -56,7 +53,9 @@ func jump_check():
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = -jump_force
 	if not is_on_floor():
+		@warning_ignore("integer_division", "integer_division", "integer_division")
 		if Input.is_action_just_released("ui_up") and velocity.y < -jump_force / 2:
+			@warning_ignore("integer_division")
 			velocity.y = -jump_force / 2
 		
 func update_animations(input_axis):

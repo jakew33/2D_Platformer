@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://lqy1ohukvjd7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3wd0q"]
-[ext_resource type="PackedScene" uid="uid://ukb14a2of0xu" path="res://player_blaster.tscn" id="2_3idn0"]
+[ext_resource type="PackedScene" uid="uid://ukb14a2of0xu" path="res://player/player_blaster.tscn" id="2_3idn0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gsyxl"]
 load_path = "res://.godot/imported/player.png-1ad27fc2a62fa126eae918723933dd6f.ctex"
