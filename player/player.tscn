@@ -104,14 +104,20 @@ floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_3wd0q")
 
+[node name="PlayerBlaster" parent="." instance=ExtResource("2_3idn0")]
+show_behind_parent = true
+position = Vector2(2, -8)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
 texture = SubResource("CompressedTexture2D_gsyxl")
 hframes = 12
 
-[node name="PlayerBlaster" parent="Sprite2D" instance=ExtResource("2_3idn0")]
-show_behind_parent = true
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite2D"]
 position = Vector2(2, 4)
+remote_path = NodePath("../../PlayerBlaster")
+update_rotation = false
+update_scale = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
