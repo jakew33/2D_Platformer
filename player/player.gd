@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const DustEffectScene = preload("res://dust_effect.tscn")
+
 @export var acceleration = 512
 @export var max_velocity = 64
 @export var friction = 256
@@ -19,6 +21,12 @@ func _physics_process(delta):
 	jump_check()
 	update_animations(input_axis)
 	move_and_slide()
+	
+func create_dust_effect():
+	var dust_effect = DustEffectScene.instantiate()
+	var main = get_tree().current_scene	
+	main.add_child(dust_effect)
+	dust_effect.global_position = global_position
 	
 func is_moving(input_axis):
 	return input_axis != 0
