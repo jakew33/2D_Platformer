@@ -35,7 +35,7 @@ func create_dust_effect():
 	Utils.instantiate_scene_on_world(DustEffect, global_position)
 	
 func is_moving(input_axis):
-	return input_axis != 1
+	return input_axis != 0
 	
 func apply_gravity(delta):
 	if not is_on_floor():
