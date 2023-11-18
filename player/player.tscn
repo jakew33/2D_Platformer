@@ -9,6 +9,21 @@ load_path = "res://.godot/imported/player.png-1ad27fc2a62fa126eae918723933dd6f.c
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld0vp"]
 size = Vector2(8, 14)
 
+[sub_resource type="Animation" id="Animation_ilxpt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_whh8t"]
 resource_name = "idle"
 length = 0.8
@@ -26,8 +41,9 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_ilxpt"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_5i6by"]
+resource_name = "jump"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,7 +54,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [11]
 }
 
 [sub_resource type="Animation" id="Animation_iyjy8"]
@@ -73,22 +89,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"create_dust_effect"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_5i6by"]
-resource_name = "jump"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ji07g"]
@@ -130,6 +130,7 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -7)
+zoom = Vector2(2, 2)
 
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 wait_time = 0.1
