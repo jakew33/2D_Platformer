@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://vdrlfe8mp1kl"]
+[gd_scene load_steps=8 format=3 uid="uid://vdrlfe8mp1kl"]
 
 [ext_resource type="Texture2D" uid="uid://cevgr80fpxnjx" path="res://backgrounds/jungle/sky.png" id="1_p4nqw"]
+[ext_resource type="Script" path="res://world.gd" id="1_yv8n4"]
 [ext_resource type="PackedScene" uid="uid://lqy1ohukvjd7" path="res://player/player.tscn" id="2_6x665"]
 [ext_resource type="PackedScene" uid="uid://bdrced50wu7vy" path="res://world/world_tile_map.tscn" id="2_k2v30"]
 [ext_resource type="Texture2D" uid="uid://ceddsqsgddx2r" path="res://backgrounds/jungle/clouds.png" id="2_mxu6c"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://5qu06kupdw7l" path="res://backgrounds/jungle/midground.png" id="6_r2f4n"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_yv8n4")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
