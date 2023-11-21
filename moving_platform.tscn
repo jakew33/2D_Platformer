@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhrkklul8oo0h"]
 
 [ext_resource type="Texture2D" uid="uid://dpxtt5f73fsu4" path="res://world/moving_platform.png" id="1_3nm4n"]
+[ext_resource type="Curve2D" uid="uid://debsm7vpyrjwg" path="res://world/left_right_path.tres" id="2_xjqcd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ffqa"]
 size = Vector2(32, 8)
@@ -43,12 +44,6 @@ _data = {
 "path_follow": SubResource("Animation_wjvkd")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_u6img"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -64, 0, 0, 0, 0, 0, -64, 0, 0, 0, 0, 0, -64, 0, 0, 0, 0, 0, -128, 0, 0, 0, 0, 32, -128, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -64)
-}
-point_count = 8
-
 [node name="MovingPlatform" type="Node2D"]
 position = Vector2(0, 64)
 
@@ -72,11 +67,10 @@ libraries = {
 }
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_u6img")
+curve = ExtResource("2_xjqcd")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(0, -64)
-progress = 320.0
 rotates = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
