@@ -95,3 +95,5 @@ func _on_hurt_box_hurt(hitbox, damage):
 	Events.add_screenshake.emit(3, 0.25)
 	PlayerStats.health -= 1
 	hurt_box.is_invincible = true
+	await get_tree().create_timer(0.5).timeout
+	hurt_box.is_invincible = false
