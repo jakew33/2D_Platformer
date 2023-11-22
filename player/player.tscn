@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://lqy1ohukvjd7"]
+[gd_scene load_steps=13 format=3 uid="uid://lqy1ohukvjd7"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3wd0q"]
 [ext_resource type="PackedScene" uid="uid://ukb14a2of0xu" path="res://player/player_blaster.tscn" id="2_3idn0"]
 [ext_resource type="PackedScene" uid="uid://cp4qry8hsbvml" path="res://collisions/hurt_box.tscn" id="3_kxrl4"]
+[ext_resource type="PackedScene" uid="uid://btuqbepn81xy8" path="res://camera_2d.tscn" id="3_ocvkv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gsyxl"]
 load_path = "res://.godot/imported/player.png-1ad27fc2a62fa126eae918723933dd6f.ctex"
@@ -135,9 +136,7 @@ libraries = {
 "": SubResource("AnimationLibrary_ji07g")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -7)
-zoom = Vector2(2, 2)
+[node name="Camera2D" parent="." instance=ExtResource("3_ocvkv")]
 
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 wait_time = 0.1
