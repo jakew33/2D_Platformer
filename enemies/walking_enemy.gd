@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var sprite_2d = $Sprite2D
 @onready var floor_cast = $FloorCast
+@onready var stats = $Stats
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -32,4 +33,7 @@ func turn_around():
 
 
 func _on_hurt_box_hurt(_hitbox, damage):
+	stats.health -= damage
+
+func _on_stats_no_health():
 	queue_free()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvnwn56y0ojs6"]
+[gd_scene load_steps=9 format=3 uid="uid://bvnwn56y0ojs6"]
 
 [ext_resource type="Script" path="res://enemies/walking_enemy.gd" id="1_6d68q"]
 [ext_resource type="Texture2D" uid="uid://ofhrjkdmmnsn" path="res://enemies/walking_enemy.png" id="1_8e5vi"]
 [ext_resource type="PackedScene" uid="uid://cp4qry8hsbvml" path="res://collisions/hurt_box.tscn" id="3_vw225"]
 [ext_resource type="PackedScene" uid="uid://bto0gpr5ba7p4" path="res://collisions/hit_box.tscn" id="4_8e8vc"]
+[ext_resource type="PackedScene" uid="uid://clv4l68g2y4kv" path="res://stats.tscn" id="5_1gmuf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdwam"]
 size = Vector2(8, 10)
@@ -48,4 +49,8 @@ collision_mask = 16
 position = Vector2(-0.5, -10.5)
 shape = SubResource("RectangleShape2D_btbj0")
 
+[node name="Stats" parent="." instance=ExtResource("5_1gmuf")]
+max_health = 2
+
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
