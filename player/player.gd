@@ -17,6 +17,7 @@ const JumpEffectScene = preload("res://effects/jump_effect.tscn")
 @onready var fire_rate_timer = $FireRateTimer
 @onready var drop_timer = $DropTimer
 @onready var camera_2d = $Camera2D
+@onready var hurt_box : = $HurtBox
 
 func _ready():
 	PlayerStats.no_health.connect(die)
@@ -93,3 +94,4 @@ func _on_drop_timer_timeout():
 func _on_hurt_box_hurt(hitbox, damage):
 	Events.add_screenshake.emit(3, 0.25)
 	PlayerStats.health -= 1
+	hurt_box.is_invincible = true
