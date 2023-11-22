@@ -15,6 +15,7 @@ const DustEffect = preload("res://effects/dust_effect.tscn")
 @onready var player_blaster = $PlayerBlaster
 @onready var fire_rate_timer = $FireRateTimer
 @onready var drop_timer = $DropTimer
+@onready var camera_2d = $Camera2D
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -77,6 +78,9 @@ func update_animations(input_axis):
 	if not is_on_floor():
 		animation_player.play("jump")
 
-
 func _on_drop_timer_timeout():
 	set_collision_mask_value(2, true)
+
+func _on_hurt_box_hurt(hitbox, damage):
+	camera_2d.reparent(get_tree().current_scene)
+	queue_free()
