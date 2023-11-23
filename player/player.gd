@@ -10,6 +10,8 @@ const JumpEffectScene = preload("res://effects/jump_effect.tscn")
 @export var jump_force = 128
 @export var max_fall_velocity = 128
 
+var air_jump = false
+
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
 @onready var coyote_jump_timer = $CoyoteJumpTimer
@@ -62,16 +64,24 @@ func apply_friction(delta):
 	velocity.x = move_toward( velocity.x, 0, friction * delta)
 		
 func jump_check():
+	if is_on_floor():
+		air_jump = true
+	
 	if is_on_floor() or coyote_jump_timer.time_left > 0.0:
 		if Input.is_action_just_pressed("jump"):
-			velocity.y = -jump_force
-			Utils.instantiate_scene_on_world(JumpEffectScene, global_position)
+			jump(jump_force)
 	if not is_on_floor():
-		@warning_ignore("integer_division", "integer_division", "integer_division")
 		if Input.is_action_just_released("ui_up") and velocity.y < -jump_force / 2:
-			@warning_ignore("integer_division")
 			velocity.y = -jump_force / 2
+			
+		if Input.is_action_just_pressed("jump") and air_jump:
+			jump(jump_force * 0.75)
+			air_jump = false
 		
+func jump(force):
+	velocity.y = -force
+	Utils.instantiate_scene_on_world(JumpEffectScene, global_position)
+
 func update_animations(input_axis):
 	sprite_2d.scale.x = sign(get_local_mouse_position().x)
 	if abs(sprite_2d.scale.x) != 1: sprite_2d.scale.x = 1
