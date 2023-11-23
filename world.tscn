@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vdrlfe8mp1kl"]
+[gd_scene load_steps=12 format=3 uid="uid://vdrlfe8mp1kl"]
 
 [ext_resource type="Texture2D" uid="uid://cevgr80fpxnjx" path="res://backgrounds/jungle/sky.png" id="1_p4nqw"]
 [ext_resource type="Script" path="res://world.gd" id="1_yv8n4"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bhrkklul8oo0h" path="res://moving_platform.tscn" id="8_apj8g"]
 [ext_resource type="Curve2D" uid="uid://c5472ra7g22g7" path="res://world/rectangle_path.tres" id="9_gnufg"]
 [ext_resource type="PackedScene" uid="uid://bvnwn56y0ojs6" path="res://enemies/walking_enemy.tscn" id="10_jppjt"]
+[ext_resource type="PackedScene" uid="uid://jd43e2wrkt43" path="res://health_bar.tscn" id="11_0sa2f"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_yv8n4")
@@ -90,6 +91,14 @@ position = Vector2(56, 16)
 
 [node name="WalkingEnemy6" parent="." instance=ExtResource("10_jppjt")]
 position = Vector2(-176, -72)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="UI" instance=ExtResource("11_0sa2f")]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 2.0
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform2"]
