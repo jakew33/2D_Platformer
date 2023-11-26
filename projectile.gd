@@ -5,6 +5,7 @@ const ExplosionEffectScene = preload("res://effects/explosion_effect.tscn")
 
 @export var speed = 250
 
+
 var velocity = Vector2.ZERO
 
 func update_velocity():
