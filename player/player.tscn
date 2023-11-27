@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3wd0q"]
 [ext_resource type="PackedScene" uid="uid://ukb14a2of0xu" path="res://player/player_blaster.tscn" id="2_3idn0"]
+[ext_resource type="Texture2D" uid="uid://0rdap2s7crf0" path="res://player/player.png" id="3_gpis7"]
 [ext_resource type="PackedScene" uid="uid://cp4qry8hsbvml" path="res://collisions/hurt_box.tscn" id="3_kxrl4"]
 [ext_resource type="PackedScene" uid="uid://btuqbepn81xy8" path="res://camera_2d.tscn" id="3_ocvkv"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gsyxl"]
-load_path = "res://.godot/imported/player.png-1ad27fc2a62fa126eae918723933dd6f.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld0vp"]
 size = Vector2(8, 14)
@@ -197,7 +195,7 @@ position = Vector2(2, -8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
-texture = SubResource("CompressedTexture2D_gsyxl")
+texture = ExtResource("3_gpis7")
 hframes = 12
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite2D"]
