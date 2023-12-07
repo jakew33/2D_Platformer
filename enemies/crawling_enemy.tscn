@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://blqkopnwngouo"]
+[gd_scene load_steps=13 format=3 uid="uid://blqkopnwngouo"]
 
 [ext_resource type="Script" path="res://enemies/crawling_enemy.gd" id="1_j53ie"]
 [ext_resource type="Texture2D" uid="uid://binuf4i8kd6os" path="res://enemies/crawling_enemy.png" id="1_na0af"]
 [ext_resource type="PackedScene" uid="uid://cp4qry8hsbvml" path="res://collisions/hurt_box.tscn" id="2_w88u3"]
 [ext_resource type="PackedScene" uid="uid://bto0gpr5ba7p4" path="res://collisions/hit_box.tscn" id="3_cgi3c"]
+[ext_resource type="Script" path="res://stats.gd" id="5_gjd2k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uce6i"]
 atlas = ExtResource("1_na0af")
@@ -74,7 +75,16 @@ shape = SubResource("RectangleShape2D_bhcr2")
 [node name="FloorCast" type="RayCast2D" parent="."]
 position = Vector2(0, -3)
 target_position = Vector2(0, 8)
+collision_mask = 3
 
 [node name="WallCast" type="RayCast2D" parent="."]
 position = Vector2(0, -4)
 target_position = Vector2(4, 0)
+collision_mask = 3
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("5_gjd2k")
+max_health = 2
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
