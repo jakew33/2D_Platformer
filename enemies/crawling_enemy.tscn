@@ -49,12 +49,13 @@ size = Vector2(12, 5)
 
 [node name="CrawlingEnemy" type="Node2D"]
 script = ExtResource("1_j53ie")
+crawling_direction = -1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_i1akq")
 autoplay = "default"
-frame_progress = 0.555068
+frame_progress = 0.185214
 
 [node name="HurtBox" parent="." instance=ExtResource("2_w88u3")]
 collision_layer = 32

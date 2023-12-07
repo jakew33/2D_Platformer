@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vdrlfe8mp1kl"]
+[gd_scene load_steps=14 format=3 uid="uid://vdrlfe8mp1kl"]
 
 [ext_resource type="Texture2D" uid="uid://cevgr80fpxnjx" path="res://backgrounds/jungle/sky.png" id="1_p4nqw"]
 [ext_resource type="Script" path="res://world.gd" id="1_yv8n4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvnwn56y0ojs6" path="res://enemies/walking_enemy.tscn" id="10_jppjt"]
 [ext_resource type="PackedScene" uid="uid://jd43e2wrkt43" path="res://health_bar.tscn" id="11_0sa2f"]
 [ext_resource type="PackedScene" uid="uid://c14awak11ci5a" path="res://enemies/plant_enemy.tscn" id="12_jwc1s"]
+[ext_resource type="PackedScene" uid="uid://blqkopnwngouo" path="res://enemies/crawling_enemy.tscn" id="13_1ob8l"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_yv8n4")
@@ -80,9 +81,6 @@ position = Vector2(240, 128)
 [node name="WalkingEnemy2" parent="." instance=ExtResource("10_jppjt")]
 position = Vector2(304, 80)
 
-[node name="WalkingEnemy3" parent="." instance=ExtResource("10_jppjt")]
-position = Vector2(104, 144)
-
 [node name="WalkingEnemy4" parent="." instance=ExtResource("10_jppjt")]
 position = Vector2(528, -32)
 
@@ -123,6 +121,12 @@ position = Vector2(200, 64)
 
 [node name="PlantEnemy7" parent="." instance=ExtResource("12_jwc1s")]
 position = Vector2(240, 64)
+
+[node name="CrawlingEnemy" parent="." instance=ExtResource("13_1ob8l")]
+position = Vector2(32, 144)
+
+[node name="CrawlingEnemy2" parent="." instance=ExtResource("13_1ob8l")]
+position = Vector2(696, -48)
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform2"]
