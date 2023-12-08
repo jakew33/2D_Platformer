@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dq1drtlk14yq4"]
+[gd_scene load_steps=17 format=3 uid="uid://dq1drtlk14yq4"]
 
 [ext_resource type="Script" path="res://enemies/flying_enemy.gd" id="1_7f7je"]
 [ext_resource type="Texture2D" uid="uid://dlhy8qtcl3ack" path="res://enemies/flying_enemy.png" id="1_ojnie"]
 [ext_resource type="PackedScene" uid="uid://cp4qry8hsbvml" path="res://collisions/hurt_box.tscn" id="3_5gt5i"]
 [ext_resource type="PackedScene" uid="uid://bto0gpr5ba7p4" path="res://collisions/hit_box.tscn" id="4_xdr2l"]
 [ext_resource type="PackedScene" uid="uid://clv4l68g2y4kv" path="res://stats.tscn" id="5_6ge3o"]
+[ext_resource type="PackedScene" uid="uid://cnghhcypt3bm2" path="res://enemies/waypoint_pathfinding.tscn" id="6_im4yf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a552w"]
 atlas = ExtResource("1_ojnie")
@@ -97,6 +98,8 @@ shape = SubResource("CircleShape2D_8sh57")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-2.38419e-07, -2.38419e-07)
 scale = Vector2(0.5, 0.5)
+
+[node name="WaypointPathfinding" parent="." instance=ExtResource("6_im4yf")]
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
