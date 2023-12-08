@@ -132,5 +132,14 @@ position = Vector2(696, -48)
 [node name="FlyingEnemy" parent="." instance=ExtResource("14_3jlxb")]
 position = Vector2(168, 16)
 
+[node name="FlyingEnemy2" parent="." instance=ExtResource("14_3jlxb")]
+position = Vector2(568, 56)
+
+[node name="FlyingEnemy3" parent="." instance=ExtResource("14_3jlxb")]
+position = Vector2(384, -64)
+
+[node name="FlyingEnemy4" parent="." instance=ExtResource("14_3jlxb")]
+position = Vector2(-96, 0)
+
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform2"]
