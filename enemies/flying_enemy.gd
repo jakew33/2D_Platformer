@@ -9,6 +9,9 @@ const EnemyDeathEffectScene = preload("res://effects/enemy_death_effect.tscn")
 @onready var stats = $Stats
 @onready var waypoint_pathfinding = $WaypointPathfinding
 
+func _ready():
+	set_physics_process(false)
+
 func _physics_process(delta):
 		var player = MainInstances.player
 		if player is CharacterBody2D:
@@ -19,11 +22,13 @@ func move_toward_position(target_position, delta):
 	velocity = velocity.move_toward(direction * max_speed, acceleration * delta)
 	animated_sprite_2d.flip_h = global_position < target_position
 	move_and_slide()
-
-
+	
 func _on_hurt_box_hurt(hitbox, damage):
 	stats.health -= 1 
 
 func _on_stats_no_health():
 	Utils.instantiate_scene_on_world(EnemyDeathEffectScene, global_position)
 	queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	set_physics_process(true)

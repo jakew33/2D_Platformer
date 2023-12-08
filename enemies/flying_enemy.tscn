@@ -95,11 +95,10 @@ shape = SubResource("CircleShape2D_8sh57")
 
 [node name="Stats" parent="." instance=ExtResource("5_6ge3o")]
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(-2.38419e-07, -2.38419e-07)
-scale = Vector2(0.5, 0.5)
-
 [node name="WaypointPathfinding" parent="." instance=ExtResource("6_im4yf")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
