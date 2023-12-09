@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://007s2huilfab"]
+
+[ext_resource type="PackedScene" uid="uid://be1h3s4obgi0t" path="res://projectile.tscn" id="1_lt2dp"]
+[ext_resource type="Texture2D" uid="uid://b5ihc3c7kkx1n" path="res://player/player_missile.png" id="2_p5otg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cueap"]
+size = Vector2(13, 4)
+
+[node name="Missile" instance=ExtResource("1_lt2dp")]
+speed = 150
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_p5otg")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(-0.5, 0)
+scale = Vector2(0.75, 0.3)
+
+[node name="HitBox" parent="." index="2"]
+collision_mask = 35
+damage = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_cueap")
