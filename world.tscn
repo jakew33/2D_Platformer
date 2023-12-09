@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vdrlfe8mp1kl"]
+[gd_scene load_steps=18 format=3 uid="uid://vdrlfe8mp1kl"]
 
 [ext_resource type="Texture2D" uid="uid://cevgr80fpxnjx" path="res://backgrounds/jungle/sky.png" id="1_p4nqw"]
 [ext_resource type="Script" path="res://world.gd" id="1_yv8n4"]
@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://c4hvojlqmdrkh" path="res://menus/pause_menu.tscn" id="12_0m2cc"]
 [ext_resource type="PackedScene" uid="uid://c14awak11ci5a" path="res://enemies/plant_enemy.tscn" id="12_jwc1s"]
 [ext_resource type="PackedScene" uid="uid://blqkopnwngouo" path="res://enemies/crawling_enemy.tscn" id="13_1ob8l"]
+[ext_resource type="PackedScene" uid="uid://hgbgt7po65x5" path="res://ui/missile_ui.tscn" id="13_f6har"]
 [ext_resource type="PackedScene" uid="uid://dq1drtlk14yq4" path="res://enemies/flying_enemy.tscn" id="14_3jlxb"]
+[ext_resource type="PackedScene" uid="uid://brbfyck80iq3v" path="res://ui/brick.tscn" id="17_sbflc"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_yv8n4")
@@ -95,13 +97,13 @@ position = Vector2(-176, -72)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="UI" instance=ExtResource("11_0sa2f")]
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 2.0
-offset_bottom = 2.0
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("12_0m2cc")]
 visible = false
+
+[node name="MissileUI" parent="UI" instance=ExtResource("13_f6har")]
+offset_top = 16.0
+offset_bottom = 26.0
 
 [node name="PlantEnemy" parent="." instance=ExtResource("12_jwc1s")]
 position = Vector2(552, 144)
@@ -144,6 +146,18 @@ position = Vector2(384, -64)
 
 [node name="FlyingEnemy4" parent="." instance=ExtResource("14_3jlxb")]
 position = Vector2(-96, 0)
+
+[node name="Brick" parent="." instance=ExtResource("17_sbflc")]
+position = Vector2(0, 96)
+
+[node name="Brick2" parent="." instance=ExtResource("17_sbflc")]
+position = Vector2(0, 80)
+
+[node name="Brick3" parent="." instance=ExtResource("17_sbflc")]
+position = Vector2(0, 64)
+
+[node name="Brick4" parent="." instance=ExtResource("17_sbflc")]
+position = Vector2(0, 48)
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform2"]
